@@ -1,0 +1,157 @@
+﻿<Window x:Class="ShelterRusakov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShelterRusakov"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Дата поступления"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <DatePicker x:Name="DateAdmissionDp"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Height="30"
+                    Width="220"
+                    FontSize="14"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"/>
+
+        <TextBlock Text="Вид"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <ComboBox x:Name="TypeComboBox"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Height="30"
+                  FontSize="14"
+                  VerticalAlignment="Center"/>
+
+        <TextBlock Text="Кличка"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="NicknameTextBox"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Height="30"
+                 FontSize="14"
+                 VerticalAlignment="Center"/>
+
+        <TextBlock Text="Наличие паспорта"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <CheckBox x:Name="PassportCheckBox"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left"/>
+
+        <TextBlock Text="Возраст"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="AgeTextBox"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Height="30"
+                 FontSize="14"
+                 VerticalAlignment="Center"/>
+
+        <TextBlock Text="Условия содержания"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="ConditionsTextBox"
+                 Grid.Row="5"
+                 Grid.Column="1"
+                 Height="30"
+                 FontSize="14"
+                 VerticalAlignment="Center"/>
+
+        <TextBlock Text="Дата конца содержания"
+                   Grid.Row="6"
+                   Grid.Column="0"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+        <DatePicker x:Name="DateEndDp"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Height="30"
+                    Width="120"
+                    FontSize="14"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"/>
+
+        <Button x:Name="OkButton"
+                Content="Add"
+                Grid.Row="7"
+                Grid.Column="1"
+                Height="40"
+                Width="120"
+                FontSize="16"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Click="OkButton_Click"/>
+
+        <DataGrid x:Name="AnimalsDataGrid"
+                  Grid.Row="8"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата поступления" 
+                                    Binding="{Binding DateAdmission, StringFormat='dd.MM.yyyy'}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Вид" 
+                                    Binding="{Binding Type}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Кличка" 
+                                    Binding="{Binding Nickname}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Паспорт" 
+                                    Binding="{Binding Passport}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Возраст" 
+                                    Binding="{Binding Age}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Пожелания" 
+                                    Binding="{Binding Conditions}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Дата убытия" 
+                                    Binding="{Binding DateEnd, StringFormat='dd.MM.yyyy'}" 
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
