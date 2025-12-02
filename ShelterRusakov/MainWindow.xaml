@@ -113,17 +113,18 @@
 
         <Button x:Name="OkButton"
                 Content="Add"
-                Grid.Row="7"
+                Grid.Row="6"
                 Grid.Column="1"
                 Height="40"
                 Width="120"
                 FontSize="16"
-                HorizontalAlignment="Right"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Click="OkButton_Click"/>
 
         <DataGrid x:Name="AnimalsDataGrid"
-                  Grid.Row="8"
+                  Grid.Row="7"
+                  Grid.RowSpan="2"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
                   AutoGenerateColumns="False"
@@ -131,25 +132,25 @@
                   FontSize="14">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата поступления" 
-                                    Binding="{Binding DateAdmission, StringFormat='dd.MM.yyyy'}" 
+                                    Binding="{Binding datestart, StringFormat=dd.MM.yyyy}" 
                                     Width="*"/>
                 <DataGridTextColumn Header="Вид" 
-                                    Binding="{Binding Type}" 
+                                    Binding="{Binding viewanimal.name}" 
                                     Width="*"/>
                 <DataGridTextColumn Header="Кличка" 
-                                    Binding="{Binding Nickname}" 
+                                    Binding="{Binding name}" 
                                     Width="*"/>
-                <DataGridTextColumn Header="Паспорт" 
-                                    Binding="{Binding Passport}" 
-                                    Width="*"/>
+                <DataGridCheckBoxColumn Header="Паспорт" 
+                                        Binding="{Binding pasport}" 
+                                        Width="*"/>
                 <DataGridTextColumn Header="Возраст" 
-                                    Binding="{Binding Age}" 
+                                    Binding="{Binding age}" 
                                     Width="*"/>
                 <DataGridTextColumn Header="Пожелания" 
-                                    Binding="{Binding Conditions}" 
+                                    Binding="{Binding service}" 
                                     Width="*"/>
                 <DataGridTextColumn Header="Дата убытия" 
-                                    Binding="{Binding DateEnd, StringFormat='dd.MM.yyyy'}" 
+                                    Binding="{Binding dateend, StringFormat=dd.MM.yyyy}" 
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
